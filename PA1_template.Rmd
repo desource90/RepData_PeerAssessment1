@@ -48,6 +48,7 @@ The 5-minute interval with the maximum number of steps (`r max_interval[2]`) was
 There are `r sum(is.na(activity$steps))` missing rows in our dataset.
 
 ## Imputing missing values
+Impute missing values by using the mean for the 5 minute interval.
 ```{r ,imputation}
 activity <- merge(activity,per_interval,by="interval",all.x=T)
 activity$steps <- ifelse(is.na(activity$steps),activity$steps_mean,activity$steps)
